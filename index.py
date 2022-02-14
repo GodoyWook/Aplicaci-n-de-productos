@@ -10,7 +10,7 @@ import sqlite3
 
 class Producto:
     
-    nombre_db = "database.db"
+    nombre_db = "data_productos.db"
 
     def __init__(self, ventana):
         self.vent = ventana
@@ -21,25 +21,29 @@ class Producto:
         cont.grid(row= 0, column=0, columnspan=3,pady=20)
 
         #Nombre
-        Label(cont, text = "Nombre: ").grid(row=1, column=0)
+        Label(cont, text = "Código: ").grid(row=1, column=0)
+        self.cod = Entry(cont)
+        self.cod.focus()
+        self.cod.grid(row=1, column=1 )
+
+        Label(cont, text = "Nombre: ").grid(row=2, column=0)
         self.nombre = Entry(cont)
-        self.nombre.focus()
-        self.nombre.grid(row=1, column=1 )
+        self.nombre.grid(row=2, column=1)
 
         #Costo
-        Label(cont, text="Costo: ").grid(row=2, column=0)
+        Label(cont, text="Costo: ").grid(row=3, column=0)
         self.costo = Entry(cont)
-        self.costo.grid(row=2, column=1)
+        self.costo.grid(row=3, column=1)
 
         #Venta
-        Label(cont, text="Venta: ").grid(row=3, column=0)
-        self.venta = Entry(cont)
-        self.venta.grid(row=3, column=1)
-
-        #Vencimiento
-        Label(cont, text="Vto: ").grid(row=4, column=0)
+        Label(cont, text="Venta: ").grid(row=4, column=0)
         self.venta = Entry(cont)
         self.venta.grid(row=4, column=1)
+
+        #Vencimiento
+        Label(cont, text="Vto: ").grid(row=5, column=0)
+        self.venta = Entry(cont)
+        self.venta.grid(row=5, column=1)
 
         #Botón Agregar producto
         ttk.Button(cont, text="Guardar producto").grid(row=5, columnspan= 2, sticky= W + E)
